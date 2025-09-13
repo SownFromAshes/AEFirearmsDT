@@ -48,7 +48,7 @@ const Contact: React.FC = () => {
                 <Phone className="h-8 w-8 text-red-600 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-xl font-bold text-slate-800 mb-2">Phone</h3>
-                  <p className="text-2xl font-semibold text-slate-700">(123) 456-7890</p>
+                  <p className="text-2xl font-semibold text-slate-700">(816) 800-2939</p>
                   <p className="text-slate-600">Monday - Friday, 8:00 AM - 6:00 PM</p>
                 </div>
               </div>
@@ -66,7 +66,7 @@ const Contact: React.FC = () => {
                 <MapPin className="h-8 w-8 text-amber-600 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-xl font-bold text-slate-800 mb-2">Workshop Location</h3>
-                  <p className="text-slate-700 text-lg">123 Heritage Lane<br />Hometown, USA 12345</p>
+                  <p className="text-slate-700 text-lg">10890 NE 264Th Street<br />Lathrop, Missouri 64465</p>
                   <p className="text-slate-600">By appointment only</p>
                 </div>
               </div>
@@ -141,7 +141,7 @@ const Contact: React.FC = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 border-2 border-slate-300 rounded-lg focus:border-red-500 focus:outline-none text-lg"
-                    placeholder="(816) 800-2939"
+                    placeholder="(123) 456-7890"
                   />
                 </div>
                 <div>
