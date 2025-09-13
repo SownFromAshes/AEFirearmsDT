@@ -30,7 +30,7 @@ const Compliance: React.FC = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="h-6 w-6 text-green-300" />
-                  <span>License #: [FFL NUMBER]</span>
+                  <span>License #: [5-43-XXX-XX-XX-17324]</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="h-6 w-6 text-green-300" />
@@ -38,7 +38,7 @@ const Compliance: React.FC = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="h-6 w-6 text-green-300" />
-                  <span>Current through: [EXPIRATION DATE]</span>
+                  <span>Current through: [01/01/2028]</span>
                 </div>
               </div>
             </div>
