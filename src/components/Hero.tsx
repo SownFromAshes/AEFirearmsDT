@@ -3,30 +3,16 @@ import { Star, Shield, Award } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 py-20 overflow-hidden">
-      {/* Patriotic Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-full h-32 bg-red-600"></div>
-        <div className="absolute top-32 left-0 w-full h-32 bg-white"></div>
-        <div className="absolute top-64 left-0 w-full h-32 bg-red-600"></div>
+    <section className="relative py-20 overflow-hidden">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/aefhero.png')" }}
+      >
+        {/* Overlay for text readability */}
+        <div className="absolute inset-0 bg-black opacity-60"></div>
       </div>
       
-      {/* Stars Pattern */}
-      <div className="absolute inset-0 opacity-20">
-        {[...Array(50)].map((_, i) => (
-          <Star
-            key={i}
-            className="absolute text-white fill-current"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              width: `${Math.random() * 8 + 4}px`,
-              height: `${Math.random() * 8 + 4}px`,
-            }}
-          />
-        ))}
-      </div>
-
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           {/* Main Eagle Logo */}
