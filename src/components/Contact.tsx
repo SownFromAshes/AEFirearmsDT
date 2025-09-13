@@ -48,7 +48,7 @@ const Contact: React.FC = () => {
                 <Phone className="h-8 w-8 text-red-600 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-xl font-bold text-slate-800 mb-2">Phone</h3>
-                  <p className="text-2xl font-semibold text-slate-700">(555) 123-4567</p>
+                  <p className="text-2xl font-semibold text-slate-700">(123) 456-7890</p>
                   <p className="text-slate-600">Monday - Friday, 8:00 AM - 6:00 PM</p>
                 </div>
               </div>
@@ -141,7 +141,7 @@ const Contact: React.FC = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 border-2 border-slate-300 rounded-lg focus:border-red-500 focus:outline-none text-lg"
-                    placeholder="(555) 123-4567"
+                    placeholder="(816) 800-2939"
                   />
                 </div>
                 <div>

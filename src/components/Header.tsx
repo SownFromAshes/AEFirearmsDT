@@ -52,7 +52,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
           {/* Phone Number */}
           <div className="hidden lg:flex items-center space-x-2 text-white">
             <Phone className="h-5 w-5 text-red-400" />
-            <span className="text-lg font-semibold">(555) 123-4567</span>
+            <span className="text-lg font-semibold">(816) 800-2939</span>
           </div>
 
           {/* Mobile Menu Button */}
