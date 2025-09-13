@@ -1,5 +1,6 @@
-import React from 'react';
-import { Flag, Target, Phone } from 'lucide-react';
+import React, { useState } from 'react';
+import { Flag, Target, Phone, Menu } from 'lucide-react';
+import MobileMenu from './MobileMenu'; // Import the new MobileMenu component
 
 interface HeaderProps {
   activeSection: string;
@@ -7,6 +8,8 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State for mobile menu visibility
+
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About Dennis' },
@@ -32,7 +35,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
             </div>
           </div>
 
-          {/* Navigation */}
+          {/* Navigation (Desktop) */}
           <nav className="hidden md:flex space-x-8">
             {navItems.map((item) => (
               <button
@@ -49,20 +52,29 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
             ))}
           </nav>
 
-          {/* Phone Number */}
+          {/* Phone Number (Desktop) */}
           <div className="hidden lg:flex items-center space-x-2 text-white">
             <Phone className="h-5 w-5 text-red-400" />
             <span className="text-lg font-semibold">(816) 800-2939</span>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button className="md:hidden text-white">
-            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+          {/* Mobile Menu Button (Hamburger Icon) */}
+          <button
+            className="md:hidden text-white hover:text-red-400 transition-colors"
+            onClick={() => setIsMobileMenuOpen(true)}
+          >
+            <Menu className="h-8 w-8" />
           </button>
         </div>
       </div>
+
+      {/* Mobile Menu Component */}
+      <MobileMenu
+        isOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
+        setActiveSection={setActiveSection}
+        navItems={navItems}
+      />
     </header>
   );
 };
