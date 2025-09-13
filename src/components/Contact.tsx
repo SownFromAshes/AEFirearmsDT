@@ -57,7 +57,7 @@ const Contact: React.FC = () => {
                 <Mail className="h-8 w-8 text-blue-600 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-xl font-bold text-slate-800 mb-2">Email</h3>
-                  <p className="text-xl font-semibold text-slate-700">dennis@americaneaglefirearms.com</p>
+                  <p className="text-xl font-semibold text-slate-700">dnnthomps4@aol.com</p>
                   <p className="text-slate-600">Response within 24 hours guaranteed</p>
                 </div>
               </div>
