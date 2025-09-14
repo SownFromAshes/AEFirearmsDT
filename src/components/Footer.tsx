@@ -1,7 +1,11 @@
 import React from 'react';
 import { Flag, Phone, Mail, MapPin, Star } from 'lucide-react';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  setActiveSection: (section: string) => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ setActiveSection }) => {
   return (
     <footer className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -60,12 +64,12 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-xl font-bold mb-6 font-serif">Our Services</h4>
             <ul className="space-y-3 text-slate-300">
-              <li className="hover:text-red-400 cursor-pointer transition-colors">Custom Firearm Builds</li>
-              <li className="hover:text-red-400 cursor-pointer transition-colors">Nationwide Repairs</li>
-              <li className="hover:text-red-400 cursor-pointer transition-colors">Restoration Services</li>
-              <li className="hover:text-red-400 cursor-pointer transition-colors">FFL Transfers</li>
-              <li className="hover:text-red-400 cursor-pointer transition-colors">Background Checks</li>
-              <li className="hover:text-red-400 cursor-pointer transition-colors">Expert Consultation</li>
+              <li className="hover:text-red-400 cursor-pointer transition-colors" onClick={() => setActiveSection('services')}>Custom Firearm Builds</li>
+              <li className="hover:text-red-400 cursor-pointer transition-colors" onClick={() => setActiveSection('services')}>Nationwide Repairs</li>
+              <li className="hover:text-red-400 cursor-pointer transition-colors" onClick={() => setActiveSection('services')}>Restoration Services</li>
+              <li className="hover:text-red-400 cursor-pointer transition-colors" onClick={() => setActiveSection('services')}>FFL Transfers</li>
+              <li className="hover:text-red-400 cursor-pointer transition-colors" onClick={() => setActiveSection('services')}>Background Checks</li>
+              <li className="hover:text-red-400 cursor-pointer transition-colors" onClick={() => setActiveSection('contact')}>Expert Consultation</li>
             </ul>
           </div>
         </div>
@@ -100,11 +104,14 @@ const Footer: React.FC = () => {
             <p>
               All firearms must be transferred in person at our licensed FFL location. We comply with all federal, state, and local laws.
               Firearms are dangerous—handle responsibly. Training is recommended.
+              Shipping restricted per law; we do not ship firearms to prohibited persons or states.
             </p>
             <div className="flex justify-center space-x-4">
-              <a href="/privacy-policy" className="text-red-400 hover:text-red-300 transition-colors">Privacy Policy</a>
+              <button onClick={() => setActiveSection('privacy-policy')} className="text-red-400 hover:text-red-300 transition-colors">Privacy Policy</button>
               <span className="text-slate-600">|</span>
-              <a href="/terms-of-service" className="text-red-400 hover:text-red-300 transition-colors">Terms of Service</a>
+              <button onClick={() => setActiveSection('terms-of-service')} className="text-red-400 hover:text-red-300 transition-colors">Terms of Service</button>
+              <span className="text-slate-600">|</span>
+              <button onClick={() => setActiveSection('refund-policy')} className="text-red-400 hover:text-red-300 transition-colors">Refund & Return Policy</button>
             </div>
           </div>
         </div>

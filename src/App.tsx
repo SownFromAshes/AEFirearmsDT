@@ -9,6 +9,9 @@ import Compliance from './components/Compliance';
 import Footer from './components/Footer';
 import AgeVerificationModal from './components/AgeVerificationModal'; // Import AgeVerificationModal
 import CookieConsentBanner from './components/CookieConsentBanner'; // Import CookieConsentBanner
+import PrivacyPolicy from './pages/PrivacyPolicy'; // Import PrivacyPolicy
+import TermsOfService from './pages/TermsOfService'; // Import TermsOfService
+import RefundReturnPolicy from './pages/RefundReturnPolicy'; // Import RefundReturnPolicy
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -30,6 +33,12 @@ function App() {
         return <Contact />;
       case 'compliance':
         return <Compliance />;
+      case 'privacy-policy': // New case for Privacy Policy
+        return <PrivacyPolicy />;
+      case 'terms-of-service': // New case for Terms of Service
+        return <TermsOfService />;
+      case 'refund-policy': // New case for Refund & Return Policy
+        return <RefundReturnPolicy />;
       default:
         return (
           <>
@@ -51,7 +60,7 @@ function App() {
           <main>
             {renderSection()}
           </main>
-          <Footer />
+          <Footer setActiveSection={setActiveSection} /> {/* Pass setActiveSection to Footer */}
         </>
       )}
       <CookieConsentBanner /> {/* Render CookieConsentBanner */}
