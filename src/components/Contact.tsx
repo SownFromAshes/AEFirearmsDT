@@ -9,6 +9,7 @@ const Contact: React.FC = () => {
     service: '',
     message: ''
   });
+  const [disclaimerAccepted, setDisclaimerAccepted] = useState(false); // New state for disclaimer
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -17,10 +18,29 @@ const Contact: React.FC = () => {
     });
   };
 
+  const handleDisclaimerChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setDisclaimerAccepted(e.target.checked);
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!disclaimerAccepted) {
+      alert('Please accept the legal disclaimer to send your message.');
+      return;
+    }
     // Handle form submission
     console.log('Form submitted:', formData);
+    // You would typically send this data to a backend service here
+    alert('Message sent successfully! Dennis will get back to you within 24 hours.');
+    // Optionally reset form and disclaimer state
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      service: '',
+      message: ''
+    });
+    setDisclaimerAccepted(false);
   };
 
   return (
@@ -175,6 +195,21 @@ const Contact: React.FC = () => {
                   className="w-full px-4 py-3 border-2 border-slate-300 rounded-lg focus:border-red-500 focus:outline-none text-lg resize-none"
                   placeholder="Please describe your project, timeline, and any specific requirements..."
                 />
+              </div>
+
+              {/* Legal Disclaimer */}
+              <div className="flex items-start space-x-3 mt-4">
+                <input
+                  type="checkbox"
+                  id="disclaimer"
+                  name="disclaimer"
+                  checked={disclaimerAccepted}
+                  onChange={handleDisclaimerChange}
+                  className="mt-1 h-5 w-5 text-red-600 focus:ring-red-500 border-gray-300 rounded"
+                />
+                <label htmlFor="disclaimer" className="text-sm text-slate-600 cursor-pointer">
+                  All inquiries and arrangements for firearm sales or services will be handled in compliance with federal and state law. No firearms are sold directly through this website.
+                </label>
               </div>
 
               <button
