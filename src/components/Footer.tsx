@@ -94,6 +94,19 @@ const Footer: React.FC = () => {
               American Eagle Firearms LLC reserves the right to refuse service for any reason.
             </p>
           </div>
+
+          {/* New Compliance Section */}
+          <div className="mt-8 pt-6 border-t border-slate-700 text-center text-slate-400 text-sm space-y-2">
+            <p>
+              All firearms must be transferred in person at our licensed FFL location. We comply with all federal, state, and local laws.
+              Firearms are dangerous—handle responsibly. Training is recommended.
+            </p>
+            <div className="flex justify-center space-x-4">
+              <a href="/privacy-policy" className="text-red-400 hover:text-red-300 transition-colors">Privacy Policy</a>
+              <span className="text-slate-600">|</span>
+              <a href="/terms-of-service" className="text-red-400 hover:text-red-300 transition-colors">Terms of Service</a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

@@ -7,9 +7,16 @@ import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import Compliance from './components/Compliance';
 import Footer from './components/Footer';
+import AgeVerificationModal from './components/AgeVerificationModal'; // Import AgeVerificationModal
+import CookieConsentBanner from './components/CookieConsentBanner'; // Import CookieConsentBanner
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
+  const [isAgeVerified, setIsAgeVerified] = useState(false); // New state for age verification
+
+  const handleAgeVerification = () => {
+    setIsAgeVerified(true);
+  };
 
   const renderSection = () => {
     switch (activeSection) {
@@ -36,11 +43,18 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
-      <Header activeSection={activeSection} setActiveSection={setActiveSection} />
-      <main>
-        {renderSection()}
-      </main>
-      <Footer />
+      {!isAgeVerified && <AgeVerificationModal onVerify={handleAgeVerification} />} {/* Render AgeVerificationModal */}
+      
+      {isAgeVerified && ( // Conditionally render main content
+        <>
+          <Header activeSection={activeSection} setActiveSection={setActiveSection} />
+          <main>
+            {renderSection()}
+          </main>
+          <Footer />
+        </>
+      )}
+      <CookieConsentBanner /> {/* Render CookieConsentBanner */}
     </div>
   );
 }
