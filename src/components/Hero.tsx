@@ -3,7 +3,7 @@ import { Star, Shield, Award } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative py-26 overflow-hidden">
+    <section className="relative py-30 overflow-hidden">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
