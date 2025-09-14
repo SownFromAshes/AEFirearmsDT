@@ -6,7 +6,7 @@ const Hero: React.FC = () => {
     <section className="relative py-32 overflow-hidden"> {/* Changed py-20 to py-32 */}
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-top bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/aefhero.png')" }}
       >
         {/* Overlay for text readability */}
