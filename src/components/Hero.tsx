@@ -15,13 +15,6 @@ const Hero: React.FC = () => {
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          {/* Main Eagle Logo */}
-          <div className="mb-8">
-            <div className="inline-flex items-center justify-center w-32 h-32 bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600 rounded-full shadow-2xl border-4 border-white">
-              <div className="text-6xl">🦅</div>
-            </div>
-          </div>
-
           {/* Main Headline */}
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 font-serif">
             <span className="text-red-400">American Eagle</span>
