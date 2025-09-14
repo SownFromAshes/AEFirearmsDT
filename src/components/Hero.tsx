@@ -6,7 +6,7 @@ const Hero: React.FC = () => {
     <section className="relative py-20 overflow-hidden">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center sm:bg-top bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[100vh]"
         style={{ backgroundImage: "url('/aefhero.png')" }}
       >
         {/* Overlay for text readability */}
