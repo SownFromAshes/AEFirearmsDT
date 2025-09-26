@@ -15,7 +15,15 @@ const About: React.FC = () => {
             
             <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
               <p>
-                Dennis Thompson is a master gunsmith with a nationwide reputation for precision, integrity, and full legal compliance as an FFL holder. Guided by traditional American values and decades of experience, Dennis combines old-school craftsmanship with state-of-the-art equipment to deliver firearms restored and refined to flawless condition.
+                Dennis Thompson is a master gunsmith known nationwide for his precision, integrity, and unwavering commitment to the law. As a fully licensed FFL holder, he personally oversees every background check and ensures complete compliance.
+              </p>
+              
+              <p>
+                A proud American craftsman, Dennis stands by the values of hard work, honesty, and respect for our constitutional rights. Every firearm leaving his shop reflects traditional quality paired with modern precision.
+              </p>
+              
+              <p>
+                From individual enthusiasts to companies across the country, clients trust Dennis to restore and perfect their firearms, knowing his decades of experience and advanced equipment deliver flawless results.
               </p>
             </div>
 
