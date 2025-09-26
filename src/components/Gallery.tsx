@@ -1,7 +1,11 @@
 import React from 'react';
 import { Camera, Award, Star } from 'lucide-react';
 
-const Gallery: React.FC = () => {
+interface GalleryProps {
+  setActiveSection: (section: string) => void;
+}
+
+const Gallery: React.FC<GalleryProps> = ({ setActiveSection }) => {
   const galleryItems = [
     { title: "Custom 1911 Build", category: "Custom Build", description: "Precision-crafted with premium materials" },
     { title: "Antique Rifle Restoration", category: "Restoration", description: "Civil War era Springfield restored to perfection" },
@@ -13,6 +17,11 @@ const Gallery: React.FC = () => {
     { title: "Custom Engraving Work", category: "Craftsmanship", description: "Artistic detail meets functional beauty" },
     { title: "Before & After Restoration", category: "Restoration", description: "Bringing history back to life" }
   ];
+
+  const handleContactClick = () => {
+    setActiveSection('contact');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <section 
@@ -94,7 +103,10 @@ const Gallery: React.FC = () => {
               Whether it's a custom build, restoration, or FFL transfer, we're ready to deliver 
               the precision and quality you expect from American craftsmanship.
             </p>
-            <button className="bg-gradient-to-r from-red-600 to-blue-600 text-white font-bold py-3 px-8 rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300 text-lg">
+            <button 
+              onClick={handleContactClick} // Add onClick handler
+              className="bg-gradient-to-r from-red-600 to-blue-600 text-white font-bold py-3 px-8 rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300 text-lg"
+            >
               Contact Dennis Today
             </button>
           </div>
@@ -105,3 +117,4 @@ const Gallery: React.FC = () => {
 };
 
 export default Gallery;
+
