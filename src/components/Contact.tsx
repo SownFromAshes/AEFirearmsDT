@@ -66,8 +66,8 @@ const Contact: React.FC = () => {
       className="relative py-20 bg-cover bg-center bg-fixed" 
       style={{ backgroundImage: "url('/dtamerica.webp')" }}
     >
-      {/* Overlay for text readability */}
-      <div className="absolute inset-0 bg-black opacity-60"></div>
+      {/* Overlay for text readability - Reduced opacity to make background image more visible */}
+      <div className="absolute inset-0 bg-black opacity-40"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
