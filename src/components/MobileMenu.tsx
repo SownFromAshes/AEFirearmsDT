@@ -1,14 +1,15 @@
 import React from 'react';
-import { X, Flag, Target } from 'lucide-react';
+import { X, Flag, Target, Phone } from 'lucide-react'; // Import Phone icon
 
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
   setActiveSection: (section: string) => void;
   navItems: { id: string; label: string }[];
+  phoneNumber: string; // Add phoneNumber prop
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, setActiveSection, navItems }) => {
+const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, setActiveSection, navItems, phoneNumber }) => {
   const handleNavigationClick = (id: string) => {
     setActiveSection(id);
     onClose();
@@ -52,8 +53,20 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, setActiveSecti
           ))}
         </nav>
 
+        {/* Phone Number for Mobile */}
+        <div className="text-center mt-8 mb-10">
+          <a 
+            href={`tel:${phoneNumber.replace(/\D/g, '')}`} // Remove non-digits for tel: link
+            className="inline-flex items-center space-x-3 text-white text-2xl font-bold hover:text-red-400 transition-colors"
+            onClick={onClose} // Close menu when phone number is clicked
+          >
+            <Phone className="h-7 w-7 text-red-400" />
+            <span>{phoneNumber}</span>
+          </a>
+        </div>
+
         {/* Footer for Mobile Menu */}
-        <div className="text-center mt-10">
+        <div className="text-center mt-auto"> {/* Use mt-auto to push to bottom */}
           <p className="text-slate-400 text-sm">
             &copy; 2025 American Eagle Firearms LLC. All rights reserved.
           </p>
@@ -67,3 +80,4 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, setActiveSecti
 };
 
 export default MobileMenu;
+
