@@ -2,9 +2,15 @@ import React from 'react';
 
 const RefundReturnPolicy: React.FC = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-slate-50 to-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold text-slate-800 mb-8 text-center font-serif">Refund & Return Policy</h1>
+    <section 
+      className="relative py-20 bg-cover bg-center bg-fixed" 
+      style={{ backgroundImage: "url('/dtamerica.webp')" }}
+    >
+      {/* Overlay for text readability */}
+      <div className="absolute inset-0 bg-black opacity-60"></div>
+      
+      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 className="text-4xl font-bold text-white mb-8 text-center font-serif">Refund & Return Policy</h1>
         <div className="bg-white p-8 rounded-lg shadow-lg border border-slate-200 text-slate-700 space-y-6">
           <h2 className="text-2xl font-bold text-slate-800 mt-8 mb-4 font-serif">Firearms</h2>
           <ul className="list-disc list-inside space-y-2">
