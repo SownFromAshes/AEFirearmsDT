@@ -19,6 +19,8 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
     { id: 'compliance', label: 'Compliance' },
   ];
 
+  const phoneNumber = '(816) 800-2939'; // Define phone number here
+
   return (
     <header className="bg-slate-900 shadow-2xl border-b-4 border-red-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -74,9 +76,11 @@ const Header: React.FC<HeaderProps> = ({ activeSection, setActiveSection }) => {
         onClose={() => setIsMobileMenuOpen(false)}
         setActiveSection={setActiveSection}
         navItems={navItems}
+        phoneNumber={phoneNumber} // Pass phone number to MobileMenu
       />
     </header>
   );
 };
 
 export default Header;
+
