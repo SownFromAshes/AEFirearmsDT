@@ -11,6 +11,8 @@ const Contact: React.FC = () => {
     message: ''
   });
   const [disclaimerAccepted, setDisclaimerAccepted] = useState(false); // New state for disclaimer
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionStatus, setSubmissionStatus] = useState<'success' | 'error' | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | React.TextareaHTMLAttributes<HTMLTextAreaElement> | HTMLSelectElement>) => {
     setFormData({
@@ -23,53 +25,61 @@ const Contact: React.FC = () => {
     setDisclaimerAccepted(e.target.checked);
   };
 
-  const handleSubmit = (e: React.FormEvent) => { // Removed async
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmissionStatus(null);
+
     if (!disclaimerAccepted) {
       alert('Please accept the legal disclaimer to send your message.');
+      setIsSubmitting(false);
       return;
     }
 
-    // Temporarily removed Supabase interaction
-    // const { data, error } = await supabase
-    //   .from('contact_submissions') // Ensure this table exists in Supabase
-    //   .insert([
-    //     {
-    //       name: formData.name,
-    //       email: formData.email,
-    //       phone: formData.phone,
-    //       service: formData.service,
-    //       message: formData.message,
-    //     },
-    //   ]);
+    const web3formsData = {
+      access_key: "36d3f3c6-42f9-4e5d-9ae4-654a538d578a", // Your Web3Forms access key
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      service: formData.service,
+      message: formData.message,
+    };
 
-    // if (error) {
-    //   console.error('Error submitting form:', error);
-    //   alert('There was an error sending your message. Please try again.');
-    // } else {
-    //   console.log('Form submitted successfully:', data);
-    //   alert('Message sent successfully! Dennis will get back to you within 24 hours.');
-    //   // Optionally reset form and disclaimer state
-    //   setFormData({
-    //     name: '',
-    //     email: '',
-    //     phone: '',
-    //     service: '',
-    //     message: ''
-    //   });
-    //   setDisclaimerAccepted(false);
-    // }
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify(web3formsData)
+      });
 
-    // Placeholder for successful submission without Supabase
-    alert('Message sent successfully! Dennis will get back to you within 24 hours.');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      service: '',
-      message: ''
-    });
-    setDisclaimerAccepted(false);
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setSubmissionStatus('success');
+        alert('Message sent successfully! Dennis will get back to you within 24 hours.');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: '',
+          message: ''
+        });
+        setDisclaimerAccepted(false);
+      } else {
+        setSubmissionStatus('error');
+        console.error('Web3Forms submission error:', result);
+        alert('There was an error sending your message. Please try again.');
+      }
+    } catch (error) {
+      setSubmissionStatus('error');
+      console.error('Network or Web3Forms submission error:', error);
+      alert('There was an error sending your message. Please check your internet connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -250,11 +260,19 @@ const Contact: React.FC = () => {
               <button
                 type="submit"
                 className="w-full bg-gradient-to-r from-red-600 to-blue-600 text-white font-bold py-4 px-8 rounded-full hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg flex items-center justify-center space-x-2"
+                disabled={isSubmitting}
               >
                 <Send className="h-6 w-6" />
-                <span>Send Message to Dennis</span>
+                <span>{isSubmitting ? 'Sending...' : 'Send Message to Dennis'}</span>
               </button>
             </form>
+
+            {submissionStatus === 'success' && (
+              <p className="text-green-600 text-center mt-4 font-semibold">Message sent successfully!</p>
+            )}
+            {submissionStatus === 'error' && (
+              <p className="text-red-600 text-center mt-4 font-semibold">Error sending message. Please try again.</p>
+            )}
 
             <p className="text-sm text-slate-600 text-center mt-4">
               * All inquiries receive a personal response within 24 hours
