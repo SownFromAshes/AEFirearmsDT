@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Send, Flag } from 'lucide-react';
+import { supabase } from '../supabaseClient'; // Import the Supabase client
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +12,7 @@ const Contact: React.FC = () => {
   });
   const [disclaimerAccepted, setDisclaimerAccepted] = useState(false); // New state for disclaimer
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | React.TextareaHTMLAttributes<HTMLTextAreaElement> | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -22,38 +23,61 @@ const Contact: React.FC = () => {
     setDisclaimerAccepted(e.target.checked);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!disclaimerAccepted) {
       alert('Please accept the legal disclaimer to send your message.');
       return;
     }
-    // Handle form submission
-    console.log('Form submitted:', formData);
-    // You would typically send this data to a backend service here
-    alert('Message sent successfully! Dennis will get back to you within 24 hours.');
-    // Optionally reset form and disclaimer state
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      service: '',
-      message: ''
-    });
-    setDisclaimerAccepted(false);
+
+    // Send data to Supabase
+    const { data, error } = await supabase
+      .from('contact_submissions') // Ensure this table exists in Supabase
+      .insert([
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          message: formData.message,
+        },
+      ]);
+
+    if (error) {
+      console.error('Error submitting form:', error);
+      alert('There was an error sending your message. Please try again.');
+    } else {
+      console.log('Form submitted successfully:', data);
+      alert('Message sent successfully! Dennis will get back to you within 24 hours.');
+      // Optionally reset form and disclaimer state
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        service: '',
+        message: ''
+      });
+      setDisclaimerAccepted(false);
+    }
   };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-slate-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section 
+      className="relative py-20 bg-cover bg-center bg-fixed" 
+      style={{ backgroundImage: "url('/dtamerica.webp')" }}
+    >
+      {/* Overlay for text readability */}
+      <div className="absolute inset-0 bg-black opacity-60"></div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center space-x-3 mb-4">
             <Flag className="h-10 w-10 text-red-600" />
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 font-serif">Contact Dennis</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-white font-serif">Contact Dennis</h2>
             <Flag className="h-10 w-10 text-blue-600" />
           </div>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
             Ready to discuss your firearms project? Dennis is here to provide personal, professional service 
             with the attention to detail you deserve. Every inquiry receives a prompt, honest response.
           </p>
