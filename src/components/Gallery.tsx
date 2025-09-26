@@ -80,7 +80,7 @@ const Gallery: React.FC<GalleryProps> = ({ setActiveSection }) => {
               <p className="text-white text-lg">Custom Builds Completed</p>
             </div>
             <div>
-              <div className="text-4xl font-bold text-blue-400 mb-2">1000+</div>
+              <div className="text-4xl font-bold text-blue-400 mb-2">100+</div>
               <p className="text-white text-lg">Firearms Restored</p>
             </div>
             <div>
