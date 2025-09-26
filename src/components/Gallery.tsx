@@ -76,7 +76,7 @@ const Gallery: React.FC<GalleryProps> = ({ setActiveSection }) => {
         <div className="bg-gradient-to-r from-slate-800 to-slate-900 rounded-2xl p-8">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-red-400 mb-2">500+</div>
+              <div className="text-4xl font-bold text-red-400 mb-2">150+</div>
               <p className="text-white text-lg">Custom Builds Completed</p>
             </div>
             <div>
