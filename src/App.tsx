@@ -26,7 +26,7 @@ function App() {
       case 'about':
         return <About />;
       case 'services':
-        return <Services />;
+        return <Services setActiveSection={setActiveSection} />; {/* Pass setActiveSection here */}
       case 'gallery':
         return <Gallery />;
       case 'contact':
@@ -43,7 +43,7 @@ function App() {
         return (
           <>
             <Hero />
-            <Services />
+            <Services setActiveSection={setActiveSection} /> {/* Pass setActiveSection here */}
             <About />
           </>
         );
@@ -69,3 +69,4 @@ function App() {
 }
 
 export default App;
+
