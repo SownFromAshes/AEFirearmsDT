@@ -1,7 +1,11 @@
 import React from 'react';
 import { Wrench, Target, FileCheck, Star, Shield, Award } from 'lucide-react';
 
-const Services: React.FC = () => {
+interface ServicesProps {
+  setActiveSection: (section: string) => void;
+}
+
+const Services: React.FC<ServicesProps> = ({ setActiveSection }) => {
   const services = [
     {
       icon: Target,
@@ -22,6 +26,11 @@ const Services: React.FC = () => {
       features: ["FFL licensed", "Background checks", "Legal compliance", "Personal service"]
     }
   ];
+
+  const handleContactClick = () => {
+    setActiveSection('contact');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <section className="py-20 bg-gradient-to-b from-slate-100 to-white">
@@ -82,6 +91,16 @@ const Services: React.FC = () => {
               <p className="text-slate-300">Companies across America rely on our reputation for excellence and integrity</p>
             </div>
           </div>
+        </div>
+
+        {/* Call to Action Button */}
+        <div className="text-center mt-16">
+          <button
+            onClick={handleContactClick}
+            className="bg-gradient-to-r from-red-600 to-blue-600 text-white font-bold py-4 px-8 rounded-full hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg"
+          >
+            Get a Quote or Consultation
+          </button>
         </div>
       </div>
     </section>
