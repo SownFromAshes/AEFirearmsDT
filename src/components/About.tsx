@@ -54,14 +54,12 @@ const About: React.FC = () => {
 
           {/* Image Placeholder & Credentials */}
           <div className="space-y-8">
-            {/* Portrait Placeholder */}
-            <div className="bg-gradient-to-br from-slate-200 to-slate-300 rounded-2xl h-96 flex items-center justify-center border-4 border-slate-400 shadow-xl">
-              <div className="text-center text-slate-600">
-                <div className="text-6xl mb-4">👨‍🔧</div>
-                <p className="text-xl font-semibold">Dennis Thompson</p>
-                <p className="text-lg">Master Gunsmith</p>
-              </div>
-            </div>
+            {/* Portrait Image */}
+            <img 
+              src="/dtself.jpg" 
+              alt="Dennis Thompson, Master Gunsmith" 
+              className="rounded-2xl h-96 w-full object-cover border-4 border-slate-400 shadow-xl"
+            />
 
             {/* Credentials Card */}
             <div className="bg-gradient-to-br from-red-600 to-blue-600 rounded-2xl p-6 text-white shadow-xl">
