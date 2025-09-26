@@ -15,16 +15,22 @@ const Gallery: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-slate-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section 
+      className="relative py-20 bg-cover bg-center bg-fixed" 
+      style={{ backgroundImage: "url('/dtamerica.webp')" }}
+    >
+      {/* Overlay for text readability */}
+      <div className="absolute inset-0 bg-black opacity-60"></div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center space-x-3 mb-4">
             <Camera className="h-10 w-10 text-red-600" />
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 font-serif">Gallery</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-white font-serif">Gallery</h2>
             <Camera className="h-10 w-10 text-blue-600" />
           </div>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
             Witness the precision and artistry that goes into every project. From custom builds to 
             complete restorations, each piece reflects our commitment to American craftsmanship.
           </p>
