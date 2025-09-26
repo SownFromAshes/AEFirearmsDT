@@ -3,27 +3,39 @@ import { Flag, Heart, Star } from 'lucide-react';
 
 const About: React.FC = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section 
+      className="relative py-20 bg-cover bg-center bg-fixed" 
+      style={{ backgroundImage: "url('/dtaflag.webp')" }}
+    >
+      {/* Overlay for text readability */}
+      <div className="absolute inset-0 bg-black opacity-40"></div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div>
             <div className="flex items-center space-x-3 mb-6">
               <Flag className="h-10 w-10 text-red-600" />
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-800 font-serif">About Dennis Thompson</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-white font-serif">About Dennis Thompson</h2>
             </div>
             
-            <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
+            <div className="space-y-6 text-lg text-slate-300 leading-relaxed">
               <p>
-                Dennis Thompson is a master gunsmith known nationwide for his precision, integrity, and unwavering commitment to the law. As a fully licensed FFL holder, he personally oversees every background check and ensures complete compliance.
+                Dennis Thompson is a master gunsmith whose reputation for precision and integrity has earned trust 
+                from firearm enthusiasts and companies nationwide. With full Federal Firearms License (FFL) certification, 
+                Dennis personally conducts every background check and ensures complete legal compliance.
               </p>
               
               <p>
-                A proud American craftsman, Dennis stands by the values of hard work, honesty, and respect for our constitutional rights. Every firearm leaving his shop reflects traditional quality paired with modern precision.
+                A proud American who embodies the spirit of traditional craftsmanship, Dennis believes in the values 
+                that built this great nation: hard work, honesty, and respect for our constitutional rights. Every 
+                firearm that leaves his shop is a testament to old-school American quality.
               </p>
               
               <p>
-                From individual enthusiasts to companies across the country, clients trust Dennis to restore and perfect their firearms, knowing his decades of experience and advanced equipment deliver flawless results.
+                When companies across the United States need firearms restored, they ship them to Dennis knowing 
+                they'll return in flawless condition. His state-of-the-art precision equipment combined with 
+                decades of experience ensures every project meets the highest standards.
               </p>
             </div>
 
@@ -32,15 +44,15 @@ const About: React.FC = () => {
               <div className="flex items-start space-x-3">
                 <Star className="h-6 w-6 text-amber-500 mt-1 flex-shrink-0" />
                 <div>
-                  <h3 className="font-bold text-slate-800 text-lg">Precision Craftsmanship</h3>
-                  <p className="text-slate-600">Every detail matters, every measurement perfect</p>
+                  <h3 className="font-bold text-white text-lg">Precision Craftsmanship</h3>
+                  <p className="text-slate-300">Every detail matters, every measurement perfect</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
                 <Heart className="h-6 w-6 text-red-600 mt-1 flex-shrink-0" />
                 <div>
-                  <h3 className="font-bold text-slate-800 text-lg">American Values</h3>
-                  <p className="text-slate-600">Patriotism, freedom, and constitutional rights</p>
+                  <h3 className="font-bold text-white text-lg">American Values</h3>
+                  <p className="text-slate-300">Patriotism, freedom, and constitutional rights</p>
                 </div>
               </div>
             </div>
