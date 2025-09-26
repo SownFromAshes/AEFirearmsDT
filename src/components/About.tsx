@@ -11,15 +11,15 @@ const About: React.FC = () => {
       <div className="absolute inset-0 bg-black opacity-40"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center bg-white/80 p-8 rounded-2xl shadow-xl"> {/* Added background and padding here */}
           {/* Content */}
           <div>
             <div className="flex items-center space-x-3 mb-6">
               <Flag className="h-10 w-10 text-red-600" />
-              <h2 className="text-4xl md:text-5xl font-bold text-white font-serif">About Dennis Thompson</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-800 font-serif">About Dennis Thompson</h2> {/* Changed text-white to text-slate-800 for contrast */}
             </div>
             
-            <div className="space-y-6 text-lg text-slate-300 leading-relaxed">
+            <div className="space-y-6 text-lg text-slate-700 leading-relaxed"> {/* Changed text-slate-300 to text-slate-700 for contrast */}
               <p>
                 Dennis Thompson is a master gunsmith whose reputation for precision and integrity has earned trust 
                 from firearm enthusiasts and companies nationwide. With full Federal Firearms License (FFL) certification, 
@@ -44,15 +44,15 @@ const About: React.FC = () => {
               <div className="flex items-start space-x-3">
                 <Star className="h-6 w-6 text-amber-500 mt-1 flex-shrink-0" />
                 <div>
-                  <h3 className="font-bold text-white text-lg">Precision Craftsmanship</h3>
-                  <p className="text-slate-300">Every detail matters, every measurement perfect</p>
+                  <h3 className="font-bold text-slate-800 text-lg">Precision Craftsmanship</h3> {/* Changed text-white to text-slate-800 */}
+                  <p className="text-slate-700">Every detail matters, every measurement perfect</p> {/* Changed text-slate-300 to text-slate-700 */}
                 </div>
               </div>
               <div className="flex items-start space-x-3">
                 <Heart className="h-6 w-6 text-red-600 mt-1 flex-shrink-0" />
                 <div>
-                  <h3 className="font-bold text-white text-lg">American Values</h3>
-                  <p className="text-slate-300">Patriotism, freedom, and constitutional rights</p>
+                  <h3 className="font-bold text-slate-800 text-lg">American Values</h3> {/* Changed text-white to text-slate-800 */}
+                  <p className="text-slate-700">Patriotism, freedom, and constitutional rights</p> {/* Changed text-slate-300 to text-slate-700 */}
                 </div>
               </div>
             </div>
