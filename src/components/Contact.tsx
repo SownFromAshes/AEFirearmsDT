@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Send, Flag } from 'lucide-react';
-import { supabase } from '../supabaseClient'; // Import the Supabase client
+// Removed: import { supabase } from '../supabaseClient'; // Import the Supabase client
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -23,42 +23,53 @@ const Contact: React.FC = () => {
     setDisclaimerAccepted(e.target.checked);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => { // Removed async
     e.preventDefault();
     if (!disclaimerAccepted) {
       alert('Please accept the legal disclaimer to send your message.');
       return;
     }
 
-    // Send data to Supabase
-    const { data, error } = await supabase
-      .from('contact_submissions') // Ensure this table exists in Supabase
-      .insert([
-        {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          service: formData.service,
-          message: formData.message,
-        },
-      ]);
+    // Temporarily removed Supabase interaction
+    // const { data, error } = await supabase
+    //   .from('contact_submissions') // Ensure this table exists in Supabase
+    //   .insert([
+    //     {
+    //       name: formData.name,
+    //       email: formData.email,
+    //       phone: formData.phone,
+    //       service: formData.service,
+    //       message: formData.message,
+    //     },
+    //   ]);
 
-    if (error) {
-      console.error('Error submitting form:', error);
-      alert('There was an error sending your message. Please try again.');
-    } else {
-      console.log('Form submitted successfully:', data);
-      alert('Message sent successfully! Dennis will get back to you within 24 hours.');
-      // Optionally reset form and disclaimer state
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: '',
-        message: ''
-      });
-      setDisclaimerAccepted(false);
-    }
+    // if (error) {
+    //   console.error('Error submitting form:', error);
+    //   alert('There was an error sending your message. Please try again.');
+    // } else {
+    //   console.log('Form submitted successfully:', data);
+    //   alert('Message sent successfully! Dennis will get back to you within 24 hours.');
+    //   // Optionally reset form and disclaimer state
+    //   setFormData({
+    //     name: '',
+    //     email: '',
+    //     phone: '',
+    //     service: '',
+    //     message: ''
+    //   });
+    //   setDisclaimerAccepted(false);
+    // }
+
+    // Placeholder for successful submission without Supabase
+    alert('Message sent successfully! Dennis will get back to you within 24 hours.');
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      service: '',
+      message: ''
+    });
+    setDisclaimerAccepted(false);
   };
 
   return (
