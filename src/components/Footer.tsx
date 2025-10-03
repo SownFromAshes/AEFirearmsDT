@@ -59,7 +59,6 @@ const Footer: React.FC<FooterProps> = ({ setActiveSection }) => {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-amber-400 mt-1" />
                 <div className="text-slate-300">
-                  <p>10890 NE 264Th Street</p>
                   <p>Lathrop, Missouri 64465</p>
                 </div>
               </div>
