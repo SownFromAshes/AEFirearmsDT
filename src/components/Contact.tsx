@@ -131,7 +131,7 @@ const Contact: React.FC = () => {
                 <MapPin className="h-8 w-8 text-amber-600 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-xl font-bold text-slate-800 mb-2">Workshop Location</h3>
-                  <p className="text-slate-700 text-lg">10890 NE 264Th Street<br />Lathrop, Missouri 64465</p>
+                  <p className="text-slate-700 text-lg"><br />Lathrop, Missouri 64465</p>
                   <p className="text-slate-600">By appointment only</p>
                 </div>
               </div>
