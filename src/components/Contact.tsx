@@ -37,7 +37,7 @@ const Contact: React.FC = () => {
     }
 
     const web3formsData = {
-      access_key: "36d3f3c6-42f9-4e5d-9ae4-654a538d578a", // Your Web3Forms access key
+      access_key: "6e9a47da-f398-4845-9a3b-671860b8b1b1", // Your Web3Forms access key
       name: formData.name,
       email: formData.email,
       phone: formData.phone,
