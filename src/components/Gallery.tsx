@@ -13,7 +13,7 @@ const Gallery: React.FC<GalleryProps> = ({ setActiveSection }) => {
 
   const galleryItems = [
     { 
-      title: "Winchester 1855", 
+      title: "Winchester 1885", 
       category: "Restoration", 
       description: "Precision-crafted with premium materials",
       images: ["/winch-1885-1.webp", "/winch-1885-2.webp", "/winch-1885-3.webp"] 
