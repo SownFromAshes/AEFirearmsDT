@@ -22,7 +22,7 @@ const Gallery: React.FC<GalleryProps> = ({ setActiveSection }) => {
       title: "Antique Rifle Restoration", 
       category: "Restoration", 
       description: "Civil War era Springfield restored to perfection",
-      images: ["/1855-winch-1.webp", "/rifle-restoration-2.webp", "/rifle-restoration-3.webp"] 
+      images: ["/1885-winch-1.webp", "/rifle-restoration-2.webp", "/rifle-restoration-3.webp"] 
     },
     { 
       title: "Modern Tactical Build", 
