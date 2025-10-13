@@ -13,10 +13,10 @@ const Gallery: React.FC<GalleryProps> = ({ setActiveSection }) => {
 
   const galleryItems = [
     { 
-      title: "Custom 1911 Build", 
-      category: "Custom Build", 
+      title: "Winchester 1855", 
+      category: "Restoration", 
       description: "Precision-crafted with premium materials",
-      images: ["/1911-custom-1.webp", "/1911-custom-2.webp", "/1911-custom-3.webp"] 
+      images: ["/winch-1855-1.webp", "/winch-1855-2.webp", "/winch-1855-3.webp"] 
     },
     { 
       title: "Antique Rifle Restoration", 
