@@ -15,7 +15,7 @@ const Gallery: React.FC<GalleryProps> = ({ setActiveSection }) => {
     { 
       title: "Winchester 1885 High Wall", 
       category: "Restoration", 
-      description: "stock repair, firing pin fix, and sight install",
+      description: "Stock Repair, Firing Pin Fix, and Sight Install",
       images: ["/winch-1885-1.webp", "/winch-1885-2.webp", "/winch-1885-3.webp"] 
     },
     { 
