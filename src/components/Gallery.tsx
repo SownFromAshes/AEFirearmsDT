@@ -13,9 +13,9 @@ const Gallery: React.FC<GalleryProps> = ({ setActiveSection }) => {
 
   const galleryItems = [
     { 
-      title: "Winchester 1885", 
+      title: "Winchester 1885 High Wall", 
       category: "Restoration", 
-      description: "Precision-crafted with premium materials",
+      description: "stock repair, firing pin fix, and sight install",
       images: ["/winch-1885-1.webp", "/winch-1885-2.webp", "/winch-1885-3.webp"] 
     },
     { 
