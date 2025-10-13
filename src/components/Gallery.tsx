@@ -16,7 +16,7 @@ const Gallery: React.FC<GalleryProps> = ({ setActiveSection }) => {
       title: "Winchester 1885 High Wall", 
       category: "Restoration", 
       description: "Stock Repair, Firing Pin Fix, and Sight Install",
-      images: ["/winch-1885-1.webp", "/winch-1885-2.webp", "/winch-1885-3.webp"] 
+      images: ["/winch-1885-1.webp", "/winch-1885-2.webp", "/winch-1885-3.webp", "/winch-1885-4.webp", "/winch-1885-5.webp"] 
     },
     { 
       title: "Antique Rifle Restoration", 
